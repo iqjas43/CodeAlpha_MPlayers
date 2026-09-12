@@ -432,7 +432,28 @@ body {
 }
 
 #volume-bar {
-    width: 90px;
+    appearance: none;
+    width: 100px;
+    height: 4px;
+    background: #4d4d4d;
+    border-radius: 2px;
+    outline: none;
+    cursor: pointer;
+}
+
+#volume-bar::-webkit-slider-runnable-track {
+    height: 4px;
+    border-radius: 2px;
+    background: transparent;
+}
+
+#volume-bar::-webkit-slider-thumb {
+    appearance: none;
+    width: 12px;
+    height: 12px;
+    background: #ffffff;
+    border-radius: 50%;
+    margin-top: -4px;
 }
 
 /* Dropdown Menu */
@@ -482,28 +503,56 @@ body {
     color: #ffffff;
 }
 
-#volume-bar {
-    appearance: none;
-    width: 100px;
-    height: 4px;
-    background: #4d4d4d;
-    border-radius: 2px;
-    outline: none;
-    cursor: pointer;
-}
+/* =========================================
+   RESPONSIVE MEDIA QUERIES FOR MOBILE DEVICES
+   ========================================= */
+@media screen and (max-width: 768px) {
+    /* Sidebar ko mobile par hide ya collapsed state me bhej do */
+    .sidebar {
+        width: 70px;
+        padding: 15px 10px;
+    }
+    .sidebar .logo-text,
+    .sidebar .sidebar-library span,
+    .sidebar .sidebar-menu span {
+        display: none;
+    }
+    
+    /* Main content margin adjust kar do */
+    .main-content {
+        margin-left: 70px !important;
+    }
 
-/* Ye ensure karega ki JS wala gradient track par properly apply ho */
-#volume-bar::-webkit-slider-runnable-track {
-    height: 4px;
-    border-radius: 2px;
-    background: transparent;
-}
+    /* Search section ko stack kar do */
+    .search-section {
+        flex-direction: column;
+        align-items: stretch;
+        gap: 12px;
+        padding: 12px 16px;
+    }
+    .search-box {
+        max-width: 100%;
+    }
 
-#volume-bar::-webkit-slider-thumb {
-    appearance: none;
-    width: 12px;
-    height: 12px;
-    background: #ffffff;
-    border-radius: 50%;
-    margin-top: -4px; /* Track ke center me laane ke liye */
+    /* Player bar ko mobile layout ke liye adjust karo */
+    .player-bar {
+        height: auto;
+        padding: 10px;
+        flex-direction: column;
+        gap: 8px;
+    }
+    .player-left, .player-center, .player-right {
+        width: 100%;
+        justify-content: space-between;
+    }
+    .player-right {
+        justify-content: center;
+        gap: 16px;
+    }
+    #volume-bar {
+        width: 120px;
+    }
+    body {
+        padding-bottom: 140px; /* Neeche space badha do taaki content player bar ke peeche na chupe */
+    }
 }
