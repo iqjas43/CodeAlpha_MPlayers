@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>mPlayer - Music Player</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+
+    <!-- Left Sidebar Navigation -->
+    <div class="sidebar" id="sidebar">
+        <div class="sidebar-header">
+            <i class="fa-solid fa-bars" id="sidebar-toggle" title="Toggle Menu"></i>
+            <span class="logo-text">mPlayer</span>
+        </div>
+        
+        <ul class="sidebar-menu">
+            <li class="active"><i class="fa-solid fa-house"></i> <span>Home</span></li>
+        </ul>
+
+        <div class="sidebar-library">
+            <div class="library-heading">
+                <i class="fa-solid fa-list"></i> <span>Playlists & Favs</span>
+            </div>
+            <ul class="sidebar-playlist-list" id="sidebar-playlist-list">
+                <li id="sidebar-fav-link">
+                    <i class="fa-solid fa-heart" style="color: #1ed760;"></i> 
+                    <span>Liked Songs</span>
+                </li>
+                <li id="sidebar-top-tracks">
+                    <i class="fa-solid fa-music"></i> 
+                    <span>My Top Tracks</span>
+                </li>
+            </ul>
+        </div>
+    </div>
+
+    <!-- Main Content Area -->
+    <div class="main-content">
+        <div class="dashboard">
+            <!-- Top Banner -->
+            <div class="top-banner">
+                <div class="banner-content">
+                    <div class="banner-left"></div>
+                    <div class="banner-right">
+                        <span class="artist-title">Shadow & Sound</span>
+                        <span class="artist-sub">Immersive Beats</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Compact Search & Upload Toolbar -->
+            <div class="search-section">
+                <div class="search-box">
+                    <i class="fa-solid fa-magnifying-glass"></i>
+                    <input type="text" id="search-input" placeholder="Search tracks or artists...">
+                </div>
+                <span class="or-text">or</span>
+                <button class="upload-own-btn" id="upload-trigger-btn">Upload audio</button>
+                <input type="file" id="local-file-input" accept="audio/*" style="display: none;">
+            </div>
+
+            <!-- Trending Section -->
+            <div class="trending-section">
+                <h2>Hear what's trending</h2>
+                <div class="cards-grid" id="cards-grid"></div>
+            </div>
+
+            <!-- Favorites Section -->
+            <div class="favorites-section" style="margin-top: 40px;">
+                <h2>Your Favorites</h2>
+                <div class="cards-grid" id="favorites-grid"></div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Bottom Persistent Player Bar -->
+    <div class="player-bar">
+        <div class="player-left">
+            <div class="menu-container">
+                <i class="fa-solid fa-ellipsis-vertical" id="menu-btn" title="More options"></i>
+                <div class="dropdown-menu hidden" id="dropdown-menu">
+                    <ul>
+                        <li id="fav-option"><i class="fa-regular fa-heart"></i> Save to Favorites</li>
+                        <li><i class="fa-solid fa-plus"></i> Add to Playlist</li>
+                        <li><i class="fa-solid fa-share-nodes"></i> Share Track</li>
+                    </ul>
+                </div>
+            </div>
+            <img src="" alt="Thumbnail" id="bar-cover">
+            <div class="bar-song-info">
+                <span id="bar-title">Song Title</span>
+                <span id="bar-artist">Artist Name</span>
+            </div>
+            <i class="fa-regular fa-heart like-btn"></i>
+        </div>
+
+        <div class="player-center">
+            <div class="player-controls">
+                <button id="shuffle-btn"><i class="fa-solid fa-shuffle"></i></button>
+                <button id="prev"><i class="fa-solid fa-backward-step"></i></button>
+                <button id="play" class="play-circle"><i class="fa-solid fa-play" id="play-icon"></i></button>
+                <button id="next"><i class="fa-solid fa-forward-step"></i></button>
+                <button id="repeat-btn"><i class="fa-solid fa-rotate-right"></i></button>
+            </div>
+            <div class="progress-bar-area">
+                <span id="current-time">0:00</span>
+                <input type="range" id="progress-bar" value="0" max="100">
+                <span id="duration">0:00</span>
+            </div>
+        </div>
+
+        <div class="player-right">
+            <i class="fa-solid fa-volume-high"></i>
+            <input type="range" id="volume-bar" value="100" max="100">
+            <i class="fa-solid fa-list"></i>
+        </div>
+    </div>
+
+    <audio id="audio-source"></audio>
+    <script src="script.js"></script>
+</body>
+</html>
