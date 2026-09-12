@@ -507,7 +507,7 @@ body {
    RESPONSIVE MEDIA QUERIES FOR MOBILE DEVICES
    ========================================= */
 @media screen and (max-width: 768px) {
-    /* Sidebar ko mobile par hide ya collapsed state me bhej do */
+    /* Sidebar ko mobile par collapsed state me bhej do */
     .sidebar {
         width: 70px;
         padding: 15px 10px;
@@ -537,22 +537,53 @@ body {
     /* Player bar ko mobile layout ke liye adjust karo */
     .player-bar {
         height: auto;
-        padding: 10px;
+        padding: 10px 12px;
         flex-direction: column;
-        gap: 8px;
+        gap: 10px;
     }
-    .player-left, .player-center, .player-right {
+    
+    .player-left {
         width: 100%;
-        justify-content: space-between;
+        justify-content: flex-start;
+        gap: 10px;
     }
+
+    .player-left img {
+        width: 42px;
+        height: 42px;
+    }
+
+    .bar-song-info {
+        flex: 1;
+        min-width: 0;
+    }
+
+    #bar-title, #bar-artist {
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+    }
+
+    .player-center {
+        width: 100%;
+        gap: 4px;
+    }
+
+    .player-controls {
+        gap: 20px;
+    }
+
     .player-right {
+        width: 100%;
         justify-content: center;
-        gap: 16px;
+        gap: 12px;
     }
+
     #volume-bar {
-        width: 120px;
+        width: 100px;
     }
+
     body {
-        padding-bottom: 140px; /* Neeche space badha do taaki content player bar ke peeche na chupe */
+        padding-bottom: 170px; /* Neeche space badha do taaki content player bar ke peeche na chupe */
     }
 }
